@@ -1,435 +1,751 @@
-[gd_resource type="Resource" load_steps=59 format=2]
+[gd_resource type="Resource" script_class="StateMachine" load_steps=77 format=3 uid="uid://cqy0j55vb1fy7"]
 
-[ext_resource path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" type="Script" id=1]
-[ext_resource path="res://addons/imjp94.yafsm/src/states/State.gd" type="Script" id=2]
-[ext_resource path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" type="Script" id=3]
-[ext_resource path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" type="Script" id=4]
-[ext_resource path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" type="Script" id=5]
+[ext_resource type="Script" uid="uid://dt6yxttk2c5an" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1"]
+[ext_resource type="Script" uid="uid://c5ynmghv1oju0" path="res://addons/imjp94.yafsm/src/states/State.gd" id="2"]
+[ext_resource type="Script" uid="uid://x62ytsbev7mw" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="3"]
+[ext_resource type="Script" uid="uid://lunb26rgtlbe" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="4"]
+[ext_resource type="Script" uid="uid://c1q1x4tij4ybu" path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" id="5"]
 
-[sub_resource type="Resource" id=1]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 0, 60 )
-}
+[sub_resource type="GDScript" id="GDScript_gueck"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="GDScript" id="GDScript_l484f"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="1"]
+script = ExtResource("2")
 name = "Entry"
+state_class = SubResource("GDScript_l484f")
+metadata/graph_offset = Vector2(79.5, 192.5)
 
-[sub_resource type="Resource" id=2]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 240, 60 )
-}
+[sub_resource type="GDScript" id="GDScript_uouq2"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="2"]
+script = ExtResource("2")
 name = "Exit"
+state_class = SubResource("GDScript_uouq2")
+metadata/graph_offset = Vector2(1239.5, 212.5)
 
-[sub_resource type="Resource" id=3]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 80, -20 )
-}
+[sub_resource type="GDScript" id="GDScript_yfgvy"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="GDScript" id="GDScript_v13e0"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="GDScript" id="GDScript_y670u"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="3"]
+script = ExtResource("2")
 name = "Entry"
+state_class = SubResource("GDScript_y670u")
 
-[sub_resource type="Resource" id=4]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 440, -20 )
-}
+[sub_resource type="GDScript" id="GDScript_py3be"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="4"]
+script = ExtResource("2")
 name = "Exit"
+state_class = SubResource("GDScript_py3be")
 
-[sub_resource type="Resource" id=5]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 240, 40 )
-}
+[sub_resource type="GDScript" id="GDScript_5gdkv"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="5"]
+script = ExtResource("2")
 name = "GameOver"
+state_class = SubResource("GDScript_5gdkv")
 
-[sub_resource type="Resource" id=6]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 260, -80 )
-}
+[sub_resource type="GDScript" id="GDScript_c0fig"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="6"]
+script = ExtResource("2")
 name = "Victory"
+state_class = SubResource("GDScript_c0fig")
 
-[sub_resource type="Resource" id=7]
-script = ExtResource( 5 )
-name = "win"
-comparation = 0
+[sub_resource type="Resource" id="7"]
+script = ExtResource("5")
 value = false
+comparation = 0
+name = "win"
 
-[sub_resource type="Resource" id=8]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="8"]
+script = ExtResource("3")
 from = "Entry"
 to = "GameOver"
 conditions = {
-"win": SubResource( 7 )
+"win": SubResource("7")
 }
+priority = 0
 
-[sub_resource type="Resource" id=9]
-script = ExtResource( 5 )
-name = "win"
-comparation = 0
+[sub_resource type="Resource" id="9"]
+script = ExtResource("5")
 value = true
+comparation = 0
+name = "win"
 
-[sub_resource type="Resource" id=10]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="10"]
+script = ExtResource("3")
 from = "Entry"
 to = "Victory"
 conditions = {
-"win": SubResource( 9 )
+"win": SubResource("9")
 }
+priority = 0
 
-[sub_resource type="Resource" id=11]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="11"]
+script = ExtResource("4")
 name = "continue"
 
-[sub_resource type="Resource" id=12]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="12"]
+script = ExtResource("3")
 from = "GameOver"
 to = "Exit"
 conditions = {
-"continue": SubResource( 11 )
+"continue": SubResource("11")
 }
+priority = 0
 
-[sub_resource type="Resource" id=13]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="13"]
+script = ExtResource("4")
 name = "continue"
 
-[sub_resource type="Resource" id=14]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="14"]
+script = ExtResource("3")
 from = "Victory"
 to = "Exit"
 conditions = {
-"continue": SubResource( 13 )
+"continue": SubResource("13")
 }
+priority = 0
 
-[sub_resource type="Resource" id=15]
-script = ExtResource( 1 )
-__meta__ = {
-"graph_offset": Vector2( 360, -80 )
-}
-name = "End"
+[sub_resource type="Resource" id="15"]
+script = ExtResource("1")
 states = {
-"Entry": SubResource( 3 ),
-"Exit": SubResource( 4 ),
-"GameOver": SubResource( 5 ),
-"Victory": SubResource( 6 )
+"Entry": SubResource("3"),
+"Exit": SubResource("4"),
+"GameOver": SubResource("5"),
+"Victory": SubResource("6")
 }
 transitions = {
 "Entry": {
-"GameOver": SubResource( 8 ),
-"Victory": SubResource( 10 )
+"GameOver": SubResource("8"),
+"Victory": SubResource("10")
 },
 "GameOver": {
-"Exit": SubResource( 12 )
+"Exit": SubResource("12")
 },
 "Victory": {
-"Exit": SubResource( 14 )
+"Exit": SubResource("14")
 }
 }
+name = "End"
+state_class = SubResource("GDScript_v13e0")
+metadata/graph_offset = Vector2(339.5, 252.5)
 
-[sub_resource type="Resource" id=16]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 20, 0 )
-}
+[sub_resource type="GDScript" id="GDScript_wescu"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="16"]
+script = ExtResource("2")
 name = "Entry"
+state_class = SubResource("GDScript_wescu")
+metadata/graph_offset = Vector2(79.5, 112.5)
 
-[sub_resource type="Resource" id=17]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 480, 0 )
-}
+[sub_resource type="GDScript" id="GDScript_ahkp2"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="17"]
+script = ExtResource("2")
 name = "Exit"
+state_class = SubResource("GDScript_ahkp2")
+metadata/graph_offset = Vector2(679.5, 292.5)
 
-[sub_resource type="Resource" id=18]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 120, 0 )
-}
+[sub_resource type="GDScript" id="GDScript_5dfqp"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="18"]
+script = ExtResource("2")
 name = "Load"
+state_class = SubResource("GDScript_5dfqp")
+metadata/graph_offset = Vector2(299.5, 132.5)
 
-[sub_resource type="Resource" id=19]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 360, 120 )
-}
+[sub_resource type="GDScript" id="GDScript_4yxak"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="19"]
+script = ExtResource("2")
 name = "Pause"
+state_class = SubResource("GDScript_4yxak")
+metadata/graph_offset = Vector2(839.5, 72.5)
 
-[sub_resource type="Resource" id=20]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 240, 0 )
-}
+[sub_resource type="GDScript" id="GDScript_vdak0"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="20"]
+script = ExtResource("2")
 name = "Play"
+state_class = SubResource("GDScript_vdak0")
+metadata/graph_offset = Vector2(559.5, 72.5)
 
-[sub_resource type="Resource" id=21]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="21"]
+script = ExtResource("3")
 from = "End"
 to = "Exit"
-conditions = {
+conditions = {}
+priority = 0
 
-}
-
-[sub_resource type="Resource" id=22]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="22"]
+script = ExtResource("3")
 from = "Entry"
 to = "Load"
-conditions = {
+conditions = {}
+priority = 0
 
-}
-
-[sub_resource type="Resource" id=23]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="23"]
+script = ExtResource("4")
 name = "load_done"
 
-[sub_resource type="Resource" id=24]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="24"]
+script = ExtResource("3")
 from = "Load"
 to = "Play"
 conditions = {
-"load_done": SubResource( 23 )
+"load_done": SubResource("23")
 }
+priority = 0
 
-[sub_resource type="Resource" id=25]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="25"]
+script = ExtResource("4")
 name = "quit"
 
-[sub_resource type="Resource" id=26]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="26"]
+script = ExtResource("3")
 from = "Pause"
 to = "Exit"
 conditions = {
-"quit": SubResource( 25 )
+"quit": SubResource("25")
 }
+priority = 0
 
-[sub_resource type="Resource" id=27]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="27"]
+script = ExtResource("4")
 name = "continue"
 
-[sub_resource type="Resource" id=28]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="28"]
+script = ExtResource("3")
 from = "Pause"
 to = "Play"
 conditions = {
-"continue": SubResource( 27 )
+"continue": SubResource("27")
 }
+priority = 0
 
-[sub_resource type="Resource" id=29]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="29"]
+script = ExtResource("4")
 name = "game_end"
 
-[sub_resource type="Resource" id=30]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="30"]
+script = ExtResource("3")
 from = "Play"
 to = "End"
 conditions = {
-"game_end": SubResource( 29 )
+"game_end": SubResource("29")
 }
+priority = 0
 
-[sub_resource type="Resource" id=31]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="31"]
+script = ExtResource("4")
 name = "quit"
 
-[sub_resource type="Resource" id=32]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="32"]
+script = ExtResource("3")
 from = "Play"
 to = "Exit"
 conditions = {
-"quit": SubResource( 31 )
+"quit": SubResource("31")
 }
+priority = 0
 
-[sub_resource type="Resource" id=33]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="33"]
+script = ExtResource("4")
 name = "pause"
 
-[sub_resource type="Resource" id=34]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="34"]
+script = ExtResource("3")
 from = "Play"
 to = "Pause"
 conditions = {
-"pause": SubResource( 33 )
+"pause": SubResource("33")
 }
+priority = 0
 
-[sub_resource type="Resource" id=35]
-script = ExtResource( 1 )
-__meta__ = {
-"graph_offset": Vector2( 540, -80 )
-}
-name = "Game"
+[sub_resource type="Resource" id="35"]
+script = ExtResource("1")
 states = {
-"End": SubResource( 15 ),
-"Entry": SubResource( 16 ),
-"Exit": SubResource( 17 ),
-"Load": SubResource( 18 ),
-"Pause": SubResource( 19 ),
-"Play": SubResource( 20 )
+"End": SubResource("15"),
+"Entry": SubResource("16"),
+"Exit": SubResource("17"),
+"Load": SubResource("18"),
+"Pause": SubResource("19"),
+"Play": SubResource("20")
 }
 transitions = {
 "End": {
-"Exit": SubResource( 21 )
+"Exit": SubResource("21")
 },
 "Entry": {
-"Load": SubResource( 22 )
+"Load": SubResource("22")
 },
 "Load": {
-"Play": SubResource( 24 )
+"Play": SubResource("24")
 },
 "Pause": {
-"Exit": SubResource( 26 ),
-"Play": SubResource( 28 )
+"Exit": SubResource("26"),
+"Play": SubResource("28")
 },
 "Play": {
-"End": SubResource( 30 ),
-"Exit": SubResource( 32 ),
-"Pause": SubResource( 34 )
+"End": SubResource("30"),
+"Exit": SubResource("32"),
+"Pause": SubResource("34")
 }
 }
+name = "Game"
+state_class = SubResource("GDScript_yfgvy")
+metadata/graph_offset = Vector2(979.5, 372.5)
 
-[sub_resource type="Resource" id=36]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 380, -180 )
-}
+[sub_resource type="GDScript" id="GDScript_twonc"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="36"]
+script = ExtResource("2")
 name = "LevelSelect"
+state_class = SubResource("GDScript_twonc")
+metadata/graph_offset = Vector2(521.5, 372.5)
 
-[sub_resource type="Resource" id=37]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 240, -80 )
-}
+[sub_resource type="GDScript" id="GDScript_8cpqi"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="37"]
+script = ExtResource("2")
 name = "MainMenu"
+state_class = SubResource("GDScript_8cpqi")
+metadata/graph_offset = Vector2(767.5, 212.5)
 
-[sub_resource type="Resource" id=38]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( -100, -80 )
-}
+[sub_resource type="GDScript" id="GDScript_sb3fl"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="38"]
+script = ExtResource("2")
 name = "SplashScreen"
+state_class = SubResource("GDScript_sb3fl")
+metadata/graph_offset = Vector2(69, 332.5)
 
-[sub_resource type="Resource" id=39]
-script = ExtResource( 2 )
-__meta__ = {
-"graph_offset": Vector2( 100, -80 )
-}
+[sub_resource type="GDScript" id="GDScript_5awhc"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="Resource" id="39"]
+script = ExtResource("2")
 name = "StartScreen"
+state_class = SubResource("GDScript_5awhc")
+metadata/graph_offset = Vector2(760.5, 92.5)
 
-[sub_resource type="Resource" id=40]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="40"]
+script = ExtResource("3")
 from = "Entry"
 to = "SplashScreen"
-conditions = {
+conditions = {}
+priority = 0
 
-}
-
-[sub_resource type="Resource" id=41]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="41"]
+script = ExtResource("3")
 from = "Game"
 to = "MainMenu"
-conditions = {
+conditions = {}
+priority = 0
 
-}
-
-[sub_resource type="Resource" id=42]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="42"]
+script = ExtResource("4")
 name = "level_selected"
 
-[sub_resource type="Resource" id=43]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="43"]
+script = ExtResource("3")
 from = "LevelSelect"
 to = "Game"
 conditions = {
-"level_selected": SubResource( 42 )
+"level_selected": SubResource("42")
 }
+priority = 0
 
-[sub_resource type="Resource" id=44]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="44"]
+script = ExtResource("4")
 name = "back"
 
-[sub_resource type="Resource" id=45]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="45"]
+script = ExtResource("3")
 from = "LevelSelect"
 to = "MainMenu"
 conditions = {
-"back": SubResource( 44 )
+"back": SubResource("44")
 }
+priority = 0
 
-[sub_resource type="Resource" id=46]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="46"]
+script = ExtResource("4")
 name = "quit"
 
-[sub_resource type="Resource" id=47]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="47"]
+script = ExtResource("3")
 from = "MainMenu"
 to = "Exit"
 conditions = {
-"quit": SubResource( 46 )
+"quit": SubResource("46")
 }
+priority = 0
 
-[sub_resource type="Resource" id=48]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="48"]
+script = ExtResource("4")
 name = "start_game"
 
-[sub_resource type="Resource" id=49]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="49"]
+script = ExtResource("3")
 from = "MainMenu"
 to = "LevelSelect"
 conditions = {
-"start_game": SubResource( 48 )
+"start_game": SubResource("48")
 }
+priority = 0
 
-[sub_resource type="Resource" id=50]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="Resource_gueck"]
+script = ExtResource("4")
 name = "splash_anim_finished"
 
-[sub_resource type="Resource" id=51]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="Resource_l484f"]
+script = ExtResource("3")
 from = "SplashScreen"
 to = "StartScreen"
 conditions = {
-"splash_anim_finished": SubResource( 50 )
+"splash_anim_finished": SubResource("Resource_gueck")
 }
+priority = 0
 
-[sub_resource type="Resource" id=52]
-script = ExtResource( 4 )
+[sub_resource type="Resource" id="52"]
+script = ExtResource("4")
 name = "enter"
 
-[sub_resource type="Resource" id=53]
-script = ExtResource( 3 )
+[sub_resource type="Resource" id="53"]
+script = ExtResource("3")
 from = "StartScreen"
 to = "MainMenu"
 conditions = {
-"enter": SubResource( 52 )
+"enter": SubResource("52")
 }
+priority = 0
 
 [resource]
-script = ExtResource( 1 )
-name = ""
+script = ExtResource("1")
 states = {
-"Entry": SubResource( 1 ),
-"Exit": SubResource( 2 ),
-"Game": SubResource( 35 ),
-"LevelSelect": SubResource( 36 ),
-"MainMenu": SubResource( 37 ),
-"SplashScreen": SubResource( 38 ),
-"StartScreen": SubResource( 39 )
+"Entry": SubResource("1"),
+"Exit": SubResource("2"),
+"Game": SubResource("35"),
+"LevelSelect": SubResource("36"),
+"MainMenu": SubResource("37"),
+"SplashScreen": SubResource("38"),
+"StartScreen": SubResource("39")
 }
 transitions = {
 "Entry": {
-"SplashScreen": SubResource( 40 )
+"SplashScreen": SubResource("40")
 },
 "Game": {
-"MainMenu": SubResource( 41 )
+"MainMenu": SubResource("41")
 },
 "LevelSelect": {
-"Game": SubResource( 43 ),
-"MainMenu": SubResource( 45 )
+"Game": SubResource("43"),
+"MainMenu": SubResource("45")
 },
 "MainMenu": {
-"Exit": SubResource( 47 ),
-"LevelSelect": SubResource( 49 )
+"Exit": SubResource("47"),
+"LevelSelect": SubResource("49")
 },
 "SplashScreen": {
-"StartScreen": SubResource( 51 )
+"StartScreen": SubResource("Resource_l484f")
 },
 "StartScreen": {
-"MainMenu": SubResource( 53 )
+"MainMenu": SubResource("53")
 }
 }
+name = ""
+state_class = SubResource("GDScript_gueck")

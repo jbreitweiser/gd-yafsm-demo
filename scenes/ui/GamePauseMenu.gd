@@ -4,7 +4,7 @@ extends "BaseUI.gd"
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		if app_state:
-			get_tree().set_input_as_handled() # Must be set as handled, as Game.gd also listening same input
+			get_viewport().set_input_as_handled() # Must be set as handled, as Game.gd also listening same input
 			app_state.set_trigger("continue")
 
 func _on_Continue_pressed():

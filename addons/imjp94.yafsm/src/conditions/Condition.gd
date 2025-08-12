@@ -1,10 +1,12 @@
-tool
+@tool
 extends Resource
+class_name Condition
 
 signal name_changed(old, new)
 signal display_string_changed(new)
 
-export(String) var name = "" setget set_name # Name of condition, unique to Transition
+@export var name: = "":  # Name of condition, unique to Transition
+	set = set_name
 
 
 func _init(p_name=""):

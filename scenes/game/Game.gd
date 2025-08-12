@@ -1,10 +1,8 @@
 extends "BaseGame.gd"
 
-const StateDirectory = preload("res://addons/imjp94.yafsm/src/StateDirectory.gd")
-
-export(PackedScene) var load_sreen_scn
-export(PackedScene) var pause_menu_scn
-export(PackedScene) var game_end_screen_scns
+@export var load_sreen_scn: PackedScene
+@export var pause_menu_scn: PackedScene
+@export var game_end_screen_scns: PackedScene
 
 var load_screen_instance
 var pause_menu_instance
@@ -14,7 +12,7 @@ var current_level_instance
 
 func _ready():
 	if app_state:
-		app_state.connect("transited", self, "_on_AppState_transited")
+		app_state.connect("transited", Callable(self, "_on_AppState_transited"))
 
 func setup_level():
 	if app_state:
@@ -61,7 +59,7 @@ func _on_AppState_transited(from, to):
 							pause_menu_instance.anchor_right = 0.5
 							pause_menu_instance.anchor_bottom = 0.5
 						else:
-							pause_menu_instance.set_anchors_and_margins_preset(Control.PRESET_WIDE)
+							pause_menu_instance.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 					add_child(pause_menu_instance)
 					get_tree().paused = true
 				"Play":
@@ -85,7 +83,7 @@ func _on_AppState_transited(from, to):
 								game_end_screen_instance.anchor_right = 0.5
 								game_end_screen_instance.anchor_bottom = 0.5
 							else:
-								game_end_screen_instance.set_anchors_and_margins_preset(Control.PRESET_WIDE)
+								game_end_screen_instance.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 							get_tree().paused = true # Stop interacting with game
 						"Exit":
 							get_tree().paused = false

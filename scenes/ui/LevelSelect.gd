@@ -1,9 +1,9 @@
-extends "BaseUI.gd"
+extends GameBaseUI
 
-export(PackedScene) var level_3d_scn
-export(PackedScene) var level_2d_scn
+@export var level_3d_scn: PackedScene
+@export var level_2d_scn: PackedScene
 
-onready var restore_last_session = $PanelContainer/CenterContainer/VBoxContainer/VBoxContainer/RestoreLastSession
+@onready var restore_last_session = $PanelContainer/CenterContainer/VBoxContainer/VBoxContainer/RestoreLastSession
 
 
 func _ready():

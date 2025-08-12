@@ -1,12 +1,12 @@
-extends KinematicBody
+extends CharacterBody3D
+class_name GameCharacter3D
 
+@onready var smp = $StateMachinePlayer
 
-onready var smp = $StateMachinePlayer
+@export var speed = 1.0
+@export var damping = 0.1
 
-export var speed = 1.0
-export var damping = 0.1
-
-var velocity = Vector3.ZERO
+#var velocity = Vector3.ZERO
 var walk = Vector3.ZERO
 
 var _last_jump = 0
@@ -14,9 +14,9 @@ var _jump_count = 0
 
 
 func _ready():
-	smp.connect("updated", self, "_on_StateMachinePlayer_updated")
+	smp.connect("updated", Callable(self, "_on_StateMachinePlayer_updated"))
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		walk += Vector3.LEFT
 	if Input.is_action_pressed("ui_right"):
@@ -51,13 +51,13 @@ func _physics_process(delta):
 	# velocity.x *= pow(1.0 - damping, delta)
 	# velocity.z *= pow(1.0 - damping, delta)
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		smp.set_trigger("space")
 
 func jump():
 	velocity += Vector3.UP * 10
-	_last_jump = OS.get_system_time_msecs()
+	_last_jump = Time.get_unix_time_from_system()
 	_jump_count += 1
 
 func _on_StateMachinePlayer_updated(state, delta):
@@ -77,7 +77,10 @@ func _on_StateMachinePlayer_updated(state, delta):
 			jump()
 			smp.set_param("jump_count", _jump_count)
 		"Fall":
-			smp.set_param("jump_elapsed", OS.get_system_time_msecs() - _last_jump)
-	velocity = move_and_slide(velocity, Vector3.UP)
+			smp.set_param("jump_elapsed", Time.get_unix_time_from_system() - _last_jump)
+	set_velocity(velocity)
+	set_up_direction(Vector3.UP)
+	move_and_slide()
+	velocity = velocity
 	velocity.x *= pow(1.0 - damping, delta)
 	velocity.z *= pow(1.0 - damping, delta)

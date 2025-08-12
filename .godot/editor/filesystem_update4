@@ -1,0 +1,15 @@
+res://Main.tscn
+res://AppState.tres
+res://scenes/game/3d/kinematicbody/Character_statemachine.tres
+res://scenes/game/3d/BaseLevel3D.gd
+res://scenes/game/2d/kinematicbody/KinematicLevel2D.gd
+res://scenes/game/3d/kinematicbody/KinematicLevel3D.gd
+res://scenes/game/2d/BaseLevel2D.gd
+res://scenes/game/3d/kinematicbody/Character3D.tscn
+res://scenes/game/2d/kinematicbody/Character2D.gd
+res://scenes/game/3d/kinematicbody/Character3D.gd
+res://scenes/ui/LevelSelect.tscn
+res://scenes/game/3d/kinematicbody/KinematicLevel3D.tscn
+res://Main.gd
+res://addons/imjp94.yafsm/src/StateMachinePlayer.gd
+res://scenes/game/Game.gd
