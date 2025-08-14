@@ -1,5 +1,6 @@
 @tool
-extends "StackPlayer.gd"
+extends StackPlayer
+class_name StateMachinePlayer
 
 signal transited(from, to) # Transition of state
 signal entered(to) # Entry of state machine(including nested), empty string equals to root
@@ -369,4 +370,4 @@ static func path_end_dir(path):
 	# In Godot 4.x the old behaviour of String.right() can be achieved with
 	# a negative length. Check the docs:
 	# https://docs.godotengine.org/en/stable/classes/class_string.html#class-string-method-right
-	return path.right(path.length() - path.rfind("/")+1)
+	return path.right(path.length() - path.rfind("/") - 1)

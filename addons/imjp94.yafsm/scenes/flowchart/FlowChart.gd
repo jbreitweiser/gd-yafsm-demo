@@ -1,13 +1,10 @@
 @tool
 extends Control
+class_name FlowChart
 
-const Utils = preload("res://addons/imjp94.yafsm/scripts/Utils.gd")
 const CohenSutherland = Utils.CohenSutherland
-const FlowChartNode = preload("FlowChartNode.gd")
 const FlowChartNodeScene = preload("FlowChartNode.tscn")
-const FlowChartLine = preload("FlowChartLine.gd")
 const FlowChartLineScene = preload("FlowChartLine.tscn")
-const FlowChartLayer = preload("FlowChartLayer.gd")
 const FlowChartGrid = preload("FlowChartGrid.gd")
 const Connection = FlowChartLayer.Connection
 
@@ -64,7 +61,6 @@ var grid_minor_color = Color(1, 1, 1, 0.05)
 	
 
 func _init():
-	super._init()
 	
 	focus_mode = FOCUS_ALL
 	selection_stylebox.bg_color = Color(0, 0, 0, 0.3)

@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="StateMachine" load_steps=18 format=3 uid="uid://cfdps1oqufpb6"]
+
+[ext_resource type="Script" uid="uid://da6jjl1qhyo6j" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1_pyv1q"]
+[ext_resource type="Script" uid="uid://csxq1y7eobasl" path="res://addons/imjp94.yafsm/src/states/State.gd" id="2_4xc7j"]
+[ext_resource type="Script" uid="uid://deuo5c7cq3yky" path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" id="3_loc6h"]
+[ext_resource type="Script" uid="uid://p3t5d78sia2m" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_kukut"]
+[ext_resource type="Script" uid="uid://d0eci6jxb17wo" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="5_38ubg"]
+
+[sub_resource type="Resource" id="3"]
+script = ExtResource("2_4xc7j")
+name = "Entry"
+metadata/graph_offset = Vector2(-0.5, 132.5)
+
+[sub_resource type="Resource" id="4"]
+script = ExtResource("2_4xc7j")
+name = "Exit"
+metadata/graph_offset = Vector2(619.5, 92.5)
+
+[sub_resource type="Resource" id="5"]
+script = ExtResource("2_4xc7j")
+name = "GameOver"
+metadata/graph_offset = Vector2(305, 192.5)
+
+[sub_resource type="Resource" id="6"]
+script = ExtResource("2_4xc7j")
+name = "Victory"
+metadata/graph_offset = Vector2(279.5, 52.5)
+
+[sub_resource type="Resource" id="Resource_pyv1q"]
+script = ExtResource("3_loc6h")
+value = false
+comparation = 0
+name = "win"
+
+[sub_resource type="Resource" id="Resource_4xc7j"]
+script = ExtResource("4_kukut")
+from = "Entry"
+to = "GameOver"
+conditions = {
+"win": SubResource("Resource_pyv1q")
+}
+priority = 0
+
+[sub_resource type="Resource" id="Resource_loc6h"]
+script = ExtResource("3_loc6h")
+value = true
+comparation = 0
+name = "win"
+
+[sub_resource type="Resource" id="Resource_kukut"]
+script = ExtResource("4_kukut")
+from = "Entry"
+to = "Victory"
+conditions = {
+"win": SubResource("Resource_loc6h")
+}
+priority = 0
+
+[sub_resource type="Resource" id="11"]
+script = ExtResource("5_38ubg")
+name = "continue"
+
+[sub_resource type="Resource" id="12"]
+script = ExtResource("4_kukut")
+from = "GameOver"
+to = "Exit"
+conditions = {
+"continue": SubResource("11")
+}
+priority = 0
+
+[sub_resource type="Resource" id="13"]
+script = ExtResource("5_38ubg")
+name = "continue"
+
+[sub_resource type="Resource" id="14"]
+script = ExtResource("4_kukut")
+from = "Victory"
+to = "Exit"
+conditions = {
+"continue": SubResource("13")
+}
+priority = 0
+
+[resource]
+script = ExtResource("1_pyv1q")
+states = {
+"Entry": SubResource("3"),
+"Exit": SubResource("4"),
+"GameOver": SubResource("5"),
+"Victory": SubResource("6")
+}
+transitions = {
+"Entry": {
+"GameOver": SubResource("Resource_4xc7j"),
+"Victory": SubResource("Resource_kukut")
+},
+"GameOver": {
+"Exit": SubResource("12")
+},
+"Victory": {
+"Exit": SubResource("14")
+}
+}
+name = "End"
+metadata/graph_offset = Vector2(401.5, 5.5)

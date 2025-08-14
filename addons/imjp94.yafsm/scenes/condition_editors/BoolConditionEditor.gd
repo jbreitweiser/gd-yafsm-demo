@@ -1,5 +1,6 @@
 @tool
-extends "ValueConditionEditor.gd"
+extends ValueConditionEditor
+class_name BoolConditionEditor
 
 @onready var boolean_value = $MarginContainer/BooleanValue
 

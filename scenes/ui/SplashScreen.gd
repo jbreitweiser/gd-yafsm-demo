@@ -1,5 +1,4 @@
-extends "res://scenes/ui/BaseUI.gd"
-
+extends BaseUI
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "splash":

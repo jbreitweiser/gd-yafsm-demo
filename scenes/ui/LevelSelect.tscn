@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce0lvvw4n2p60"]
 
-[ext_resource type="Script" path="res://scenes/ui/LevelSelect.gd" id="1"]
+[ext_resource type="Script" uid="uid://bkipta74lijqr" path="res://scenes/ui/LevelSelect.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bfrcv3ldly535" path="res://scenes/game/3d/kinematicbody/KinematicLevel3D.tscn" id="2"]
-[ext_resource type="PackedScene" path="res://scenes/game/2d/kinematicbody/KinematicLevel2D.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://gme1cg1jnwpw" path="res://scenes/game/2d/kinematicbody/KinematicLevel2D.tscn" id="3"]
 
 [node name="LevelSelect" type="Control"]
 layout_mode = 3

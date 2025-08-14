@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh8i1ouo1vrh"]
+[gd_scene load_steps=11 format=3 uid="uid://dh8i1ouo1vrh"]
 
-[ext_resource type="PackedScene" path="res://addons/imjp94.yafsm/src/debugger/StackPlayerDebugger.tscn" id="1"]
-[ext_resource type="Script" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://wne4i7j74l6f" path="res://addons/imjp94.yafsm/src/debugger/StackPlayerDebugger.tscn" id="1"]
+[ext_resource type="Script" uid="uid://byf15vvh7cwip" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2"]
 [ext_resource type="Resource" uid="uid://x4h7xgnptaii" path="res://AppState.tres" id="3"]
-[ext_resource type="Script" path="res://Main.gd" id="4"]
-[ext_resource type="PackedScene" path="res://scenes/ui/StartScreen.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://scenes/game/Game.tscn" id="6"]
+[ext_resource type="Script" uid="uid://d4aqlt4uecn3m" path="res://Main.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://b2anhw8dn2wnt" path="res://scenes/ui/StartScreen.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://d372y5blid1p3" path="res://scenes/game/Game.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dqgv8op8xg7dt" path="res://scenes/ui/MainMenu.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cx5bb13jik7tk" path="res://scenes/ui/GameEndScreen.tscn" id="7_wkp8b"]
 [ext_resource type="PackedScene" uid="uid://ce0lvvw4n2p60" path="res://scenes/ui/LevelSelect.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://dh807llpgwx7w" path="res://scenes/ui/SplashScreen.tscn" id="9"]
 
@@ -17,6 +18,7 @@ start_screen_scn = ExtResource("5")
 main_menu_scn = ExtResource("7")
 level_select_scn = ExtResource("8")
 game_scn = ExtResource("6")
+game_end_scn = ExtResource("7_wkp8b")
 
 [node name="AppState" type="CanvasLayer" parent="."]
 process_mode = 3

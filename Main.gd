@@ -1,12 +1,11 @@
 extends Node
 
-const StateDirectory = preload("addons/imjp94.yafsm/src/StateDirectory.gd")
-
 @export var splash_screen_scn: PackedScene
 @export var start_screen_scn: PackedScene
 @export var main_menu_scn: PackedScene
 @export var level_select_scn: PackedScene
 @export var game_scn: PackedScene
+@export var game_end_scn: PackedScene
 
 @onready var app_state = $AppState
 
@@ -40,10 +39,14 @@ func _on_AppState_transited(from, to):
 			next_scene = level_select_scn.instantiate()
 		"Game":
 			match to_dir.next(): # Match nested state
-				"Entry": # Game/Entry
+				"Load": # Game/Load
+					game_scn = app_state.get_param("Game/level_scn")
 					next_scene = game_scn.instantiate()
+				"End":
+					next_scene = game_end_scn.instantiate()
 		"Exit":
 			get_tree().quit()
+			
 	if next_scene:
 		next_scene.name = to_dir.get_base()
 		next_scene.set("app_state", app_state)

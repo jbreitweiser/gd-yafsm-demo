@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bfrcv3ldly535"]
 
-[ext_resource type="Script" path="res://scenes/game/3d/kinematicbody/KinematicLevel3D.gd" id="1"]
-[ext_resource type="Script" path="res://scenes/game/3d/kinematicbody/StateLabel3D.gd" id="2"]
+[ext_resource type="Script" uid="uid://brqi7bd2cloyl" path="res://scenes/game/3d/kinematicbody/KinematicLevel3D.gd" id="1"]
+[ext_resource type="Script" uid="uid://cw6x8vs6fkcte" path="res://scenes/game/3d/kinematicbody/StateLabel3D.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://dqo0p6bo3sf66" path="res://scenes/game/3d/kinematicbody/Character3D.tscn" id="3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_7mudh"]

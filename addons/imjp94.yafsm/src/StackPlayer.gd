@@ -1,4 +1,5 @@
 extends Node
+class_name StackPlayer
 
 signal pushed(to) # When item pushed to stack
 signal popped(from) # When item popped from stack
@@ -20,7 +21,6 @@ var _stack
 
 
 func _init():
-	super._init()
 	_stack = []
 
 # Push an item to the top of stack

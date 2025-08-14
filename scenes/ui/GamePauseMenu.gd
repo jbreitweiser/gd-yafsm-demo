@@ -1,4 +1,4 @@
-extends "BaseUI.gd"
+extends BaseUI
 
 @onready var continue_btn = $"%Continue"
 

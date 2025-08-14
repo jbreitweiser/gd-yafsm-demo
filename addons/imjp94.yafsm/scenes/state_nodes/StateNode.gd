@@ -1,7 +1,5 @@
 @tool
-extends "res://addons/imjp94.yafsm/scenes/flowchart/FlowChartNode.gd"
-const State = preload("../../src/states/State.gd")
-const StateMachine = preload("../../src/states/StateMachine.gd")
+extends FlowChartNode
 
 signal name_edit_entered(new_name) # Emits when focused exit or Enter pressed
 

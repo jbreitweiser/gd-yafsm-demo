@@ -19,7 +19,7 @@ func _init():
 func _ready():
 	stack_player = get_node_or_null(stack_player_np)
 
-func _process(delta):
+func _process(_delta):
 	if stack_player:
 		label.text = stack_player.get_current()
 		label.position.x = label.size.x / 2 + offset.x

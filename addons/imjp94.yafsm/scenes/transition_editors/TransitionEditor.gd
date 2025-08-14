@@ -1,6 +1,6 @@
 @tool
 extends VBoxContainer
-const Utils = preload("../../scripts/Utils.gd")
+
 const ConditionEditor = preload("../condition_editors/ConditionEditor.tscn")
 const BoolConditionEditor = preload("../condition_editors/BoolConditionEditor.tscn")
 const IntegerConditionEditor = preload("../condition_editors/IntegerConditionEditor.tscn")
@@ -30,7 +30,6 @@ var _to_free
 
 
 func _init():
-	super._init()
 	_to_free = []
 
 func _ready():

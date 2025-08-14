@@ -1,7 +1,8 @@
 @tool
-extends "ConditionEditor.gd"
-const Utils = preload("../../scripts/Utils.gd")
-const Comparation = preload("../../src/conditions/ValueCondition.gd").Comparation
+extends ConditionEditor
+class_name ValueConditionEditor
+
+const Comparation = ValueCondition.Comparation
 
 @onready var comparation_button = $Comparation
 @onready var comparation_popup_menu = $Comparation/PopupMenu

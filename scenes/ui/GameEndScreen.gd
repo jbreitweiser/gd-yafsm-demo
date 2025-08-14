@@ -1,4 +1,4 @@
-extends "res://scenes/ui/BaseUI.gd"
+extends BaseUI
 
 @onready var title = $PanelContainer/CenterContainer/VBoxContainer/Label
 

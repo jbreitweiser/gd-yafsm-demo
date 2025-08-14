@@ -16,7 +16,7 @@ func _init():
 func _ready():
 	stack_player = get_node_or_null(stack_player_np)
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint:
 		return
 

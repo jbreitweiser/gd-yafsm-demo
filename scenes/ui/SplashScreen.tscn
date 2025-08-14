@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dh807llpgwx7w"]
 
-[ext_resource type="Script" path="res://scenes/ui/SplashScreen.gd" id="1"]
+[ext_resource type="Script" uid="uid://eymde40ph2ja" path="res://scenes/ui/SplashScreen.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://d3naemns2lnp5" path="res://icon.png" id="2"]
 
 [sub_resource type="Animation" id="2"]
@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_333ta"]
 _data = {
-"splash": SubResource("2")
+&"splash": SubResource("2")
 }
 
 [node name="SplashScreen" type="Control"]

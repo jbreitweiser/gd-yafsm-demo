@@ -1,5 +1,6 @@
 @tool
-extends "ValueConditionEditor.gd"
+extends ValueConditionEditor
+class_name FloatConditionEditor
 
 @onready var float_value = $MarginContainer/FloatValue
 

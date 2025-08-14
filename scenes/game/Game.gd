@@ -1,6 +1,4 @@
-extends "BaseGame.gd"
-
-const StateDirectory = preload("res://addons/imjp94.yafsm/src/StateDirectory.gd")
+extends BaseGame
 
 @export var load_sreen_scn: PackedScene
 @export var pause_menu_scn: PackedScene

@@ -1,6 +1,6 @@
 @tool
 extends Control
-const StackPlayer = preload("../StackPlayer.gd")
+
 const StackItem = preload("StackItem.tscn")
 
 @onready var Stack = $MarginContainer/Stack

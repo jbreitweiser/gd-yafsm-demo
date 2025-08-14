@@ -1,4 +1,4 @@
-extends "BaseUI.gd"
+extends BaseUI
 
 @export var level_3d_scn: PackedScene
 @export var level_2d_scn: PackedScene
@@ -24,15 +24,18 @@ func _unhandled_key_input(event):
 func _on_RestoreLastSession_pressed():
 	if app_state:
 		app_state.set_trigger("level_selected")
+		app_state.set_param("Game/End/win", null)
 
 func _on_Select3D_pressed():
 	if app_state:
 		# Example of param "local" to nested state "Game", which will be automatically erased on exit, "Game/Exit"
 		app_state.set_param("Game/level_scn", level_3d_scn)
 		app_state.set_trigger("level_selected")
+		app_state.erase_param("Game/End/win")
 
 func _on_Select2D_pressed():
 	if app_state:
 		# Example of param "local" to nested state "Game", which will be automatically erased on exit, "Game/Exit"
 		app_state.set_param("Game/level_scn", level_2d_scn)
 		app_state.set_trigger("level_selected")
+		app_state.erase_param("Game/End/win")

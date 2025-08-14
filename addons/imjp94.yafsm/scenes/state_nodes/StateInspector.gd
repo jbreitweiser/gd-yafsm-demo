@@ -1,6 +1,5 @@
 extends EditorInspectorPlugin
-
-const State = preload("res://addons/imjp94.yafsm/src/states/State.gd")
+class_name StateInspector
 
 func _can_handle(object):
 	return object is State

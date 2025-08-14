@@ -1,5 +1,6 @@
 @tool
 extends Container
+class_name FlowChartLine
 # Custom style normal, focus, arrow
 
 var selected: = false:
@@ -7,7 +8,6 @@ var selected: = false:
 
 
 func _init():
-	super._init()
 	
 	focus_mode = FOCUS_CLICK
 	mouse_filter = MOUSE_FILTER_IGNORE

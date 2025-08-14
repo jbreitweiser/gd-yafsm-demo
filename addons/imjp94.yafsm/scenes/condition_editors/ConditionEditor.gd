@@ -1,5 +1,6 @@
 @tool
 extends HBoxContainer
+class_name ConditionEditor
 
 @onready var name_edit = $Name
 @onready var remove = $Remove

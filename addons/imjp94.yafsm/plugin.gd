@@ -5,8 +5,6 @@ const StackPlayer = YAFSM.StackPlayer
 const StateMachinePlayer = YAFSM.StateMachinePlayer
 
 const StateMachineEditor = preload("scenes/StateMachineEditor.tscn")
-const TransitionInspector = preload("scenes/transition_editors/TransitionInspector.gd")
-const StateInspector = preload("scenes/state_nodes/StateInspector.gd")
 
 const StackPlayerIcon = preload("assets/icons/stack_player_icon.png")
 const StateMachinePlayerIcon = preload("assets/icons/state_machine_player_icon.png")

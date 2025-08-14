@@ -1,4 +1,4 @@
-extends "BaseUI.gd"
+extends BaseUI
 
 @onready var start_game_btn = $"%StartGame"
 

@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Character3D
 
 @onready var smp = $StateMachinePlayer
 
@@ -15,7 +15,7 @@ var _jump_count = 0
 func _ready():
 	smp.connect("updated", _on_StateMachinePlayer_updated)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		walk += Vector3.LEFT
 	if Input.is_action_pressed("ui_right"):
@@ -50,7 +50,7 @@ func _physics_process(delta):
 	# velocity.x *= pow(1.0 - damping, delta)
 	# velocity.z *= pow(1.0 - damping, delta)
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		smp.set_trigger("space")
 

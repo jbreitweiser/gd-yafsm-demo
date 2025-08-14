@@ -1,5 +1,6 @@
 @tool
 extends RefCounted
+class_name StateDirectory
 
 const State = preload("states/State.gd")
 
@@ -16,7 +17,6 @@ var _dirs = [""] # Empty string equals to root
 
 
 func _init(p):
-	super._init()
 	path = p
 	_dirs += Array(p.split("/"))
 
@@ -60,7 +60,7 @@ func get_current():
 # Get current end state name of path
 func get_current_end():
 	var current_path = get_current()
-	return current_path.right(current_path.length() - current_path.rfind("/")+1)
+	return current_path.right(current_path.length() - current_path.rfind("/") - 1)
 
 # Get index of base state
 func get_base_index():

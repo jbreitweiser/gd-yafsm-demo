@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Character2D
 
 
 @onready var smp = $StateMachinePlayer
@@ -16,7 +17,7 @@ func _ready():
 	smp.connect("updated", _on_StateMachinePlayer_updated)
 	smp.connect("transited", _on_StateMachine_transited)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("ui_left"):
 		walk += Vector2.LEFT
 	if Input.is_action_pressed("ui_right"):
@@ -46,7 +47,7 @@ func _physics_process(delta):
 	# velocity = move_and_slide(velocity, Vector2.UP)
 	# velocity.x *= pow(1.0 - damping, delta)
 
-func _unhandled_key_input(event):
+func _unhandled_key_input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		smp.set_trigger("space")
 
