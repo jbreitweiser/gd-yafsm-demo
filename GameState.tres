@@ -36,6 +36,7 @@ func enter(parent: Node, from: String) -> void: # Enter State
 	var game_scn = parent.game_scn.instantiate()
 	game_scn.app_state = parent.app_state
 	parent.add_child(game_scn)
+	parent.app_state.set_param(\"game_scn\", game_scn)
 
 # Exit is called when the state has changed to a different state.  Use it to release resources.
 #func exit(parent: Node, to: String) -> void: # Exit of state 
@@ -56,10 +57,21 @@ metadata/graph_offset = Vector2(-93.5, 115.5)
 resource_name = "Exit"
 script/source = "extends StateInterface
 
-#func enter(parent: Node, from: String) -> void: # Enter State
-	#
-	#var next_scene = parent.app_state.get_param(\"Game/level_instantiate\")
-	#next_scene.queue_free()
+## Game/Exit
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+func enter(parent: Node, from: String) -> void: # Enter State
+	var game_scn = parent.app_state.get_param(\"game_scn\")
+	
+	if not (from.ends_with(\"End\")): # Not from Game/End(not finished)
+		game_scn.remove_child(game_scn.current_level_instance)
+		game_scn.app_state.set_param(\"last_level\", game_scn.current_level_instance)
+		game_scn.current_level_instance = null
+	if game_scn.game_end_screen_instance:
+		game_scn.game_end_screen_instance.queue_free()
+ 
 "
 
 [sub_resource type="Resource" id="17"]
@@ -72,19 +84,19 @@ metadata/graph_offset = Vector2(610.5, 104.5)
 resource_name = "Load"
 script/source = "extends StateInterface
 
-var next_scene: Node
+var game_scn: Node
 
-#func enter(parent: Node, from: String) -> void: # Enter State
-	#print(\"Load game\")
-	#var game_scn = parent.app_state.get_param(\"Game/level_scn\")
-	#print(\"Scene Name \", game_scn)
-	#next_scene = parent.game_scn.instantiate()
-	##next_scene.add_sibling(game_scn.instantiate())
-	#next_scene.set(\"app_state\", parent.app_state)
-	#parent.add_child(next_scene)
-	#next_scene.setup_level()
-	#parent.app_state.set_param(\"Game/level_instantiate\", next_scene)
- 
+func enter(parent: Node, from: String) -> void: # Enter State
+	game_scn = parent.app_state.get_param(\"game_scn\")
+	game_scn.load_screen_instance = game_scn.load_sreen_scn.instantiate()
+	game_scn.load_screen_instance.set(\"app_state\", parent.app_state)
+	game_scn.add_child(game_scn.load_screen_instance)
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+func exit(parent: Node, to: String) -> void: # Exit of state 
+	game_scn.load_screen_instance.queue_free()
+	game_scn.load_screen_instance = null
+	game_scn.setup_level()
 "
 
 [sub_resource type="Resource" id="18"]
@@ -97,19 +109,31 @@ metadata/graph_offset = Vector2(71.5, 115.5)
 resource_name = "Pause"
 script/source = "extends StateInterface
 
+## Game/Pause
+
 # This code is a stub of the StateInterface.  
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
-#func enter(parent: Node, from: String) -> void: # Enter State
-	#pass
+func enter(parent: Node, from: String) -> void: # Enter State
+	var game_scn = parent.app_state.get_param(\"game_scn\")
+	if not game_scn.pause_menu_instance:
+		game_scn.pause_menu_instance = game_scn.pause_menu_scn.instantiate()
+		game_scn.pause_menu_instance.set(\"app_state\", parent.app_state)
+		if game_scn.current_level_instance is Node2D:
+			game_scn.pause_menu_instance.anchor_left = -0.5
+			game_scn.pause_menu_instance.anchor_top = -0.5
+			game_scn.pause_menu_instance.anchor_right = 0.5
+			game_scn.pause_menu_instance.anchor_bottom = 0.5
+		else:
+			game_scn.pause_menu_instance.set_anchors_preset(Control.PRESET_FULL_RECT)
+	game_scn.add_child(game_scn.pause_menu_instance)
+	game_scn.get_tree().paused = true
 
 # Exit is called when the state has changed to a different state.  Use it to release resources.
-#func exit(parent: Node, to: String) -> void: # Exit of state 
-	#pass
+func exit(parent: Node, to: String) -> void: # Exit of state 
+	var game_scn = parent.app_state.get_param(\"game_scn\")
+	game_scn.remove_child(game_scn.pause_menu_instance) 
 
-# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
-#func update(parent: Node, delta):
-	#pass
 "
 
 [sub_resource type="Resource" id="19"]
@@ -122,19 +146,15 @@ metadata/graph_offset = Vector2(368.5, 324.5)
 resource_name = "Play"
 script/source = "extends StateInterface
 
+## Game/Play
+
 # This code is a stub of the StateInterface.  
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
-#func enter(parent: Node, from: String) -> void: # Enter State
-	#pass
+func enter(parent: Node, from: String) -> void: # Enter State
+	var game_scn = parent.app_state.get_param(\"game_scn\")
+	game_scn.get_tree().paused = false
 
-# Exit is called when the state has changed to a different state.  Use it to release resources.
-#func exit(parent: Node, to: String) -> void: # Exit of state 
-	#pass
-
-# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
-#func update(parent: Node, delta):
-	#pass
 "
 
 [sub_resource type="Resource" id="20"]

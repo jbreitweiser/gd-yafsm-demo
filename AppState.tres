@@ -53,19 +53,14 @@ metadata/graph_offset = Vector2(139.5, 272.5)
 resource_name = "Exit"
 script/source = "extends StateInterface
 
+## Exit 
+
 # This code is a stub of the StateInterface.  
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
-#func enter(parent: Node, from: String) -> void: # Enter State
-	#pass
-
-# Exit is called when the state has changed to a different state.  Use it to release resources.
-#func exit(parent: Node, to: String) -> void: # Exit of state 
-	#pass
-
-# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
-#func update(parent: Node, delta):
-	#pass
+func enter(parent: Node, from: String) -> void: # Enter State
+	#  Exit the game
+	parent.get_tree().quit()
 "
 
 [sub_resource type="Resource" id="2"]
@@ -77,6 +72,8 @@ metadata/graph_offset = Vector2(559.5, 272.5)
 [sub_resource type="GDScript" id="GDScript_yfgvy"]
 resource_name = "LevelSelect"
 script/source = "extends StateInterface
+
+## LevelSelect
 
 var next_scene: Node
 
@@ -102,6 +99,8 @@ metadata/graph_offset = Vector2(681.5, 12.5)
 resource_name = "MainMenu"
 script/source = "extends StateInterface
 
+## MainMenu
+
 var next_scene: Node
 
 func enter(parent: Node, from: String) -> void: # Enter State
@@ -123,6 +122,8 @@ metadata/graph_offset = Vector2(547.5, 132.5)
 [sub_resource type="GDScript" id="GDScript_y670u"]
 resource_name = "SplashScreen"
 script/source = "extends StateInterface
+
+## SplashScreen
 
 var next_scene: Node
 
@@ -146,6 +147,7 @@ metadata/graph_offset = Vector2(109, 132.5)
 resource_name = "StartScreen"
 script/source = "extends StateInterface
 
+## StartScreen
 var next_scene: Node
 
 func enter(parent: Node, from: String) -> void: # Enter State
@@ -171,17 +173,11 @@ to = "SplashScreen"
 conditions = {}
 priority = 0
 
-[sub_resource type="Resource" id="44"]
-script = ExtResource("4")
-name = "back"
-
-[sub_resource type="Resource" id="45"]
+[sub_resource type="Resource" id="41"]
 script = ExtResource("3")
-from = "LevelSelect"
+from = "Game"
 to = "MainMenu"
-conditions = {
-"back": SubResource("44")
-}
+conditions = {}
 priority = 0
 
 [sub_resource type="Resource" id="42"]
@@ -194,6 +190,19 @@ from = "LevelSelect"
 to = "Game"
 conditions = {
 "level_selected": SubResource("42")
+}
+priority = 0
+
+[sub_resource type="Resource" id="44"]
+script = ExtResource("4")
+name = "back"
+
+[sub_resource type="Resource" id="45"]
+script = ExtResource("3")
+from = "LevelSelect"
+to = "MainMenu"
+conditions = {
+"back": SubResource("44")
 }
 priority = 0
 
@@ -247,13 +256,6 @@ to = "MainMenu"
 conditions = {
 "enter": SubResource("52")
 }
-priority = 0
-
-[sub_resource type="Resource" id="41"]
-script = ExtResource("3")
-from = "Game"
-to = "MainMenu"
-conditions = {}
 priority = 0
 
 [resource]
