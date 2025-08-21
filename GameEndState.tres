@@ -35,7 +35,7 @@ script/source = "extends StateInterface
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	var game_scn = parent.app_state.get_param(\"game_scn\")
+	var game_scn = parent #.app_state.get_param(\"game_scn\")
 	game_scn.game_end_screen_instance = game_scn.game_end_screen_scns.instantiate()
 	game_scn.game_end_screen_instance.set(\"app_state\", parent.app_state)
 	game_scn.add_child(game_scn.game_end_screen_instance)
@@ -73,16 +73,9 @@ script/source = "extends StateInterface
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	var game_scn = parent.app_state.get_param(\"game_scn\")
+	var game_scn = parent #.app_state.get_param(\"game_scn\")
 	game_scn.get_tree().paused = false
 
-# Exit is called when the state has changed to a different state.  Use it to release resources.
-#func exit(parent: Node, to: String) -> void: # Exit of state 
-	#pass
-
-# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
-#func update(parent: Node, delta):
-	#pass
 "
 
 [sub_resource type="Resource" id="4"]

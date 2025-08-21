@@ -36,7 +36,8 @@ func enter(parent: Node, from: String) -> void: # Enter State
 	var game_scn = parent.game_scn.instantiate()
 	game_scn.app_state = parent.app_state
 	parent.add_child(game_scn)
-	parent.app_state.set_param(\"game_scn\", game_scn)
+	parent.app_state.state_node = game_scn
+	#parent.app_state.set_param(\"game_scn\", game_scn)
 
 # Exit is called when the state has changed to a different state.  Use it to release resources.
 #func exit(parent: Node, to: String) -> void: # Exit of state 
@@ -63,14 +64,15 @@ script/source = "extends StateInterface
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	var game_scn = parent.app_state.get_param(\"game_scn\")
+	#var game_scn = parent.app_state.get_param(\"game_scn\")
 	
 	if not (from.ends_with(\"End\")): # Not from Game/End(not finished)
-		game_scn.remove_child(game_scn.current_level_instance)
-		game_scn.app_state.set_param(\"last_level\", game_scn.current_level_instance)
-		game_scn.current_level_instance = null
-	if game_scn.game_end_screen_instance:
-		game_scn.game_end_screen_instance.queue_free()
+		parent.remove_child(parent.current_level_instance)
+		parent.app_state.set_param(\"last_level\", parent.current_level_instance)
+		parent.current_level_instance = null
+	if parent.game_end_screen_instance:
+		parent.game_end_screen_instance.queue_free()
+	parent.app_state.state_node = parent.app_state.get_parent()
  
 "
 
@@ -84,19 +86,22 @@ metadata/graph_offset = Vector2(610.5, 104.5)
 resource_name = "Load"
 script/source = "extends StateInterface
 
-var game_scn: Node
+var game_scn : Node
+var load_screen_instance: Node
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	game_scn = parent.app_state.get_param(\"game_scn\")
-	game_scn.load_screen_instance = game_scn.load_sreen_scn.instantiate()
-	game_scn.load_screen_instance.set(\"app_state\", parent.app_state)
-	game_scn.add_child(game_scn.load_screen_instance)
+	#game_scn = parent.app_state.get_param(\"game_scn\")
+	load_screen_instance = parent.load_sreen_scn.instantiate()
+	load_screen_instance.set(\"app_state\", parent.app_state)
+	parent.add_child(load_screen_instance)
+	
 
 # Exit is called when the state has changed to a different state.  Use it to release resources.
 func exit(parent: Node, to: String) -> void: # Exit of state 
-	game_scn.load_screen_instance.queue_free()
-	game_scn.load_screen_instance = null
-	game_scn.setup_level()
+	parent.setup_level()
+	load_screen_instance.queue_free()
+	load_screen_instance = null
+	
 "
 
 [sub_resource type="Resource" id="18"]
@@ -115,7 +120,7 @@ script/source = "extends StateInterface
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	var game_scn = parent.app_state.get_param(\"game_scn\")
+	var game_scn = parent #.app_state.get_param(\"game_scn\")
 	if not game_scn.pause_menu_instance:
 		game_scn.pause_menu_instance = game_scn.pause_menu_scn.instantiate()
 		game_scn.pause_menu_instance.set(\"app_state\", parent.app_state)
@@ -131,7 +136,7 @@ func enter(parent: Node, from: String) -> void: # Enter State
 
 # Exit is called when the state has changed to a different state.  Use it to release resources.
 func exit(parent: Node, to: String) -> void: # Exit of state 
-	var game_scn = parent.app_state.get_param(\"game_scn\")
+	var game_scn = parent #.app_state.get_param(\"game_scn\")
 	game_scn.remove_child(game_scn.pause_menu_instance) 
 
 "
@@ -152,9 +157,8 @@ script/source = "extends StateInterface
 # Enter is called once when the state is changed to the current state.  Use to initialize the state
 
 func enter(parent: Node, from: String) -> void: # Enter State
-	var game_scn = parent.app_state.get_param(\"game_scn\")
-	game_scn.get_tree().paused = false
-
+	#var game_scn = parent.app_state.get_param(\"game_scn\")
+	parent.get_tree().paused = false
 "
 
 [sub_resource type="Resource" id="20"]

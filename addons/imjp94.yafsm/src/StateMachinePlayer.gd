@@ -297,17 +297,13 @@ func get_param(name, default=null):
 	if "/" in name:
 		path = path_backward(name)
 		name = path_end_dir(name)
-		print("path: ", path , " " , name)
 	return get_nested_param(path, name, default)
 
 func get_nested_param(path, name, default=null):
-	print("get_nested_parameters() = ", path, ", ", name)
 	if path.is_empty():
 		return _parameters.get(name, default)
 	else:
-		print("_local_parameters: ", _local_parameters)
 		var local_params = _local_parameters.get(path, {})
-		print("local parameters: ", local_params)
 		return local_params.get(name, default)
 
 # Get duplicate of whole parameter dictionary

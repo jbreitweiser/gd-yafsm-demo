@@ -4,7 +4,6 @@ extends BaseGame
 @export var pause_menu_scn: PackedScene
 @export var game_end_screen_scns: PackedScene
 
-var load_screen_instance
 var pause_menu_instance
 var game_end_screen_instance
 var current_level_instance
