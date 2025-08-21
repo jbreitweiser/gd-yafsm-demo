@@ -11,7 +11,9 @@ var current_level_instance
 
 
 func _ready():
+	print("game ready without app_state")
 	if app_state:
+		print("game ready with app_state")
 		app_state.connect("transited", _on_AppState_transited)
 
 func setup_level():

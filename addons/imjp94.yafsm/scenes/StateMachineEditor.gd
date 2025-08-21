@@ -1,15 +1,8 @@
 @tool
-extends "res://addons/imjp94.yafsm/scenes/flowchart/FlowChart.gd"
-const StateMachinePlayer = preload("../src/StateMachinePlayer.gd")
-const StateMachine = preload("../src/states/StateMachine.gd")
-const Transition = preload("../src/transitions/Transition.gd")
-const State = preload("../src/states/State.gd")
-const StateDirectory = preload("../src/StateDirectory.gd")
-const StateNode = preload("state_nodes/StateNode.tscn")
+extends FlowChart
+
+const StateNodeScene = preload("state_nodes/StateNode.tscn")
 const TransitionLine = preload("transition_editors/TransitionLine.tscn")
-const StateNodeScript = preload("state_nodes/StateNode.gd")
-const StateMachineEditorLayer = preload("StateMachineEditorLayer.gd")
-const PathViewer = preload("PathViewer.gd")
 
 signal inspector_changed(property) # Inform plugin to refresh inspector
 signal debug_mode_changed(new_debug_mode)
@@ -42,7 +35,7 @@ var message_box = VBoxContainer.new()
 var editor_accent_color = Color.WHITE
 var transition_arrow_icon
 
-var undo_redo
+var undo_redo: EditorUndoRedoManager
 
 var debug_mode: = false:
 	set = set_debug_mode
@@ -152,6 +145,9 @@ func _process(delta):
 	_last_stack = stack
 	var params = state_machine_player.get("Members/_parameters")
 	var local_params = state_machine_player.get("Members/_local_parameters")
+	if params == null:
+		params = state_machine_player.get("Members/StateMachinePlayer.gd/_parameters")
+		local_params = state_machine_player.get("Members/StateMachinePlayer.gd/_local_parameters")
 	param_panel.update_params(params, local_params)
 	get_focused_layer(_current_state).debug_update(_current_state, params, local_params)
 
@@ -181,7 +177,7 @@ func _on_path_viewer_dir_pressed(dir, index):
 	_last_path = path
 
 func _on_context_menu_index_pressed(index):
-	var new_node = StateNode.instantiate()
+	var new_node = StateNodeScene.instantiate()
 	new_node.theme.get_stylebox("focus", "FlowChartNode").border_color = editor_accent_color
 	match index:
 		0: # Add State
@@ -230,6 +226,10 @@ func _on_state_node_context_menu_index_pressed(index):
 			_context_node = null
 		4: # Convert
 			convert_to_state_confirmation.popup_centered()
+		5:
+			var layer = create_layer(_context_node)
+			select_layer(layer)
+			_context_node = null
 
 func _on_convert_to_state_confirmation_confirmed():
 	convert_to_state(current_layer, _context_node)
@@ -246,11 +246,23 @@ func _on_save_dialog_confirmed():
 
 func _on_create_new_state_machine_pressed():
 	var new_state_machine = StateMachine.new()
-	state_machine_player.state_machine = new_state_machine
-	set_state_machine(new_state_machine)
-	create_new_state_machine_container.visible = false
-	check_has_entry()
-	emit_signal("inspector_changed", "state_machine")
+	
+	undo_redo.create_action("Create New StateMachine")
+	
+	undo_redo.add_do_reference(new_state_machine)
+	undo_redo.add_do_property(state_machine_player, "state_machine", new_state_machine)
+	undo_redo.add_do_method(self, "set_state_machine", new_state_machine)
+	undo_redo.add_do_property(create_new_state_machine_container, "visible", false)
+	undo_redo.add_do_method(self, "check_has_entry")
+	undo_redo.add_do_method(self, "emit_signal", "inspector_changed", "state_machine")
+	
+	undo_redo.add_undo_property(state_machine_player, "state_machine", null)
+	undo_redo.add_undo_method(self, "set_state_machine", null)
+	undo_redo.add_undo_property(create_new_state_machine_container, "visible", true)
+	undo_redo.add_undo_method(self, "check_has_entry")
+	undo_redo.add_undo_method(self, "emit_signal", "inspector_changed", "state_machine")
+	
+	undo_redo.commit_action()
 
 func _on_condition_visibility_pressed():
 	for line in current_layer.content_lines.get_children():
@@ -400,6 +412,7 @@ func _on_state_node_gui_input(event, node):
 					state_node_context_menu.position = get_window().position + Vector2i(get_viewport().get_mouse_position())
 					state_node_context_menu.popup()
 					state_node_context_menu.set_item_disabled(4, not (node.state is StateMachine))
+					state_node_context_menu.set_item_disabled(5, not (node.state is StateMachine))
 					accept_event()
 
 func convert_to_state_machine(layer, node):
@@ -463,7 +476,7 @@ func clear_graph(layer):
 	clear_connections()
 	
 	for child in layer.content_nodes.get_children():
-		if child is StateNodeScript:
+		if child is StateNode:
 			layer.content_nodes.remove_child(child)
 			child.queue_free()
 	
@@ -474,7 +487,7 @@ func clear_graph(layer):
 func draw_graph(layer):
 	for state_key in layer.state_machine.states.keys():
 		var state = layer.state_machine.states[state_key]
-		var new_node = StateNode.instantiate()
+		var new_node = StateNodeScene.instantiate()
 		new_node.theme.get_stylebox("focus", "FlowChartNode").border_color = editor_accent_color
 		new_node.name = state_key # Set before add_node to let engine handle duplicate name
 		add_node(layer, new_node)

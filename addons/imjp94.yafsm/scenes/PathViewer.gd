@@ -1,8 +1,7 @@
 @tool
-extends HBoxContainer
+class_name PathViewer extends HBoxContainer
 
 signal dir_pressed(dir, index)
-
 
 func _init():
 	add_dir("root")

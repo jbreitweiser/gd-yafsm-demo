@@ -1,11 +1,9 @@
 @tool
-extends ValueCondition
-class_name FloatCondition
+class_name FloatCondition extends ValueCondition
 
 @export var value: float:
 	set = set_value,
 	get = get_value
-
 
 func set_value(v):
 	if not is_equal_approx(value, v):

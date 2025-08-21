@@ -1,6 +1,5 @@
 @tool
-extends Resource
-class_name Transition
+class_name Transition extends Resource
 
 signal condition_added(condition)
 signal condition_removed(condition)

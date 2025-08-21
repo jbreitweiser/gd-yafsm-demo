@@ -1,6 +1,6 @@
 @tool
-extends StackPlayer
-class_name StateMachinePlayer
+class_name StateMachinePlayer extends StackPlayer
+
 
 signal transited(from, to) # Transition of state
 signal entered(to) # Entry of state machine(including nested), empty string equals to root
@@ -15,6 +15,7 @@ enum UpdateProcessMode {
 }
 
 @export var state_machine: StateMachine # StateMachine being played 
+@export var state_node: Node # the node that this machine is managing the state for
 @export var active: = true:  # Activeness of player
 	set = set_active
 @export var autostart: = true # Automatically enter Entry state on ready if true
@@ -39,13 +40,16 @@ func _init():
 	_local_parameters = {}
 	_was_transited = true # Trigger _transit on _ready
 
-func _get_configuration_warning():
+func _get_configuration_warnings() -> PackedStringArray:
+	var _errors: Array[String] = []
+
 	if state_machine:
 		if not state_machine.has_entry():
-			return "State Machine will not function properly without Entry node"
+			_errors.append("The StateMachine provided does not have an Entry node.\nPlease create one to it works properly.")
 	else:
-		return "State Machine Player is not going anywhere without default State Machine"
-	return ""
+		_errors.append("StateMachinePlayer needs a StateMachine to run.\nPlease create a StateMachine resource to it.")
+	
+	return PackedStringArray(_errors)
 
 func _ready():
 	if Engine.is_editor_hint():
@@ -54,6 +58,8 @@ func _ready():
 	set_process(false)
 	set_physics_process(false)
 	call_deferred("_initiate") # Make sure connection of signals can be done in _ready to receive all signal callback
+	if not state_node:
+		state_node = get_parent()
 
 func _initiate():
 	if autostart:
@@ -103,6 +109,8 @@ func _transit():
 		_on_state_changed(from, to)
 
 func _on_state_changed(from, to):
+	#  Call exit on class before clearing variables 
+	state_machine.get_state(from).state_impl.exit(state_node, to)
 	match to:
 		State.ENTRY_STATE:
 			emit_signal("entered", "")
@@ -121,6 +129,7 @@ func _on_state_changed(from, to):
 		emit_signal("exited", state)
 
 	emit_signal("transited", from, to)
+	state_machine.get_state(to).state_impl.enter(state_node, from)
 
 # Called internally if process_mode is PHYSICS/IDLE to unlock update()
 func _update_start():
@@ -176,6 +185,8 @@ func reset(to=-1, event=ResetEventTrigger.LAST_TO_DEST):
 
 # Manually start the player, automatically called if autostart is true
 func start():
+	assert(state_machine != null, "A StateMachine resource is required to start this StateMachinePlayer.")
+	assert(state_machine.has_entry(), "The StateMachine provided does not have an Entry node.")
 	push(State.ENTRY_STATE)
 	emit_signal("entered", "")
 	_was_transited = true
@@ -202,6 +213,8 @@ func update(delta=get_physics_process_delta_time()):
 	var current_state = get_current()
 	_on_updated(current_state, delta)
 	emit_signal("updated", current_state, delta)
+	state_machine.get_state(current_state).state_impl.update(state_node, delta)
+	
 	if update_process_mode == UpdateProcessMode.MANUAL:
 		# Make sure to auto advance even in MANUAL mode
 		if _was_transited:
@@ -284,13 +297,17 @@ func get_param(name, default=null):
 	if "/" in name:
 		path = path_backward(name)
 		name = path_end_dir(name)
+		print("path: ", path , " " , name)
 	return get_nested_param(path, name, default)
 
 func get_nested_param(path, name, default=null):
+	print("get_nested_parameters() = ", path, ", ", name)
 	if path.is_empty():
 		return _parameters.get(name, default)
 	else:
+		print("_local_parameters: ", _local_parameters)
 		var local_params = _local_parameters.get(path, {})
+		print("local parameters: ", local_params)
 		return local_params.get(name, default)
 
 # Get duplicate of whole parameter dictionary
@@ -370,4 +387,4 @@ static func path_end_dir(path):
 	# In Godot 4.x the old behaviour of String.right() can be achieved with
 	# a negative length. Check the docs:
 	# https://docs.godotengine.org/en/stable/classes/class_string.html#class-string-method-right
-	return path.right(path.length() - path.rfind("/") - 1)
+	return path.right(path.length()-1 - path.rfind("/"))

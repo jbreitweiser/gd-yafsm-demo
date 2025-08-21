@@ -1,6 +1,5 @@
 @tool
-extends Control
-class_name FlowChartLayer
+class_name FlowChartLayer extends Control
 
 var content_lines = Control.new() # Node that hold all flowchart lines
 var content_nodes = Control.new() # Node that hold all flowchart nodes

@@ -1,5 +1,5 @@
 @tool
-extends FlowChartNode
+class_name StateNode extends FlowChartNode
 
 signal name_edit_entered(new_name) # Emits when focused exit or Enter pressed
 

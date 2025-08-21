@@ -1,6 +1,5 @@
 @tool
-extends HBoxContainer
-class_name ConditionEditor
+class_name ConditionEditor extends HBoxContainer
 
 @onready var name_edit = $Name
 @onready var remove = $Remove
@@ -9,7 +8,6 @@ var undo_redo
 
 var condition:
 	set = set_condition
-
 
 func _ready():
 	name_edit.text_submitted.connect(_on_name_edit_text_submitted)

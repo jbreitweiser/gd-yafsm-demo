@@ -1,8 +1,8 @@
 extends  BaseLevel3D
-
-func _ready() -> void:
-	if app_state:
-		app_state.set_trigger("load_done")
+#
+#func _ready() -> void:
+	#if app_state:
+		#app_state.set_trigger("load_done")
 
 func _on_Area_body_entered(body):
 	# Victory

@@ -1,34 +1,146 @@
-[gd_resource type="Resource" script_class="StateMachine" load_steps=25 format=3 uid="uid://qjvf06cx05tk"]
+[gd_resource type="Resource" script_class="StateMachine" load_steps=31 format=3 uid="uid://qjvf06cx05tk"]
 
-[ext_resource type="Script" uid="uid://da6jjl1qhyo6j" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1_g6g7o"]
+[ext_resource type="Script" uid="uid://dj05xcwu35h2s" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1_g6g7o"]
 [ext_resource type="Resource" uid="uid://cfdps1oqufpb6" path="res://GameEndState.tres" id="2_g6g7o"]
-[ext_resource type="Script" uid="uid://csxq1y7eobasl" path="res://addons/imjp94.yafsm/src/states/State.gd" id="2_r12qt"]
-[ext_resource type="Script" uid="uid://p3t5d78sia2m" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_u5juq"]
-[ext_resource type="Script" uid="uid://d0eci6jxb17wo" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="5_82e7v"]
+[ext_resource type="Script" uid="uid://c32hneu5jvcmt" path="res://addons/imjp94.yafsm/src/states/State.gd" id="2_r12qt"]
+[ext_resource type="Script" uid="uid://473tveuavq5t" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="4_u5juq"]
+[ext_resource type="Script" uid="uid://41vj1aorhrx8" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="5_82e7v"]
+
+[sub_resource type="GDScript" id="GDScript_g6g7o"]
+resource_name = "Game"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="GDScript" id="GDScript_r12qt"]
+resource_name = "Entry"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+func enter(parent: Node, from: String) -> void: # Enter State
+	var game_scn = parent.game_scn.instantiate()
+	game_scn.app_state = parent.app_state
+	parent.add_child(game_scn)
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="16"]
 script = ExtResource("2_r12qt")
 name = "Entry"
+state_class = SubResource("GDScript_r12qt")
 metadata/graph_offset = Vector2(-93.5, 115.5)
+
+[sub_resource type="GDScript" id="GDScript_xpnr4"]
+resource_name = "Exit"
+script/source = "extends StateInterface
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#
+	#var next_scene = parent.app_state.get_param(\"Game/level_instantiate\")
+	#next_scene.queue_free()
+"
 
 [sub_resource type="Resource" id="17"]
 script = ExtResource("2_r12qt")
 name = "Exit"
+state_class = SubResource("GDScript_xpnr4")
 metadata/graph_offset = Vector2(610.5, 104.5)
+
+[sub_resource type="GDScript" id="GDScript_u5juq"]
+resource_name = "Load"
+script/source = "extends StateInterface
+
+var next_scene: Node
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#print(\"Load game\")
+	#var game_scn = parent.app_state.get_param(\"Game/level_scn\")
+	#print(\"Scene Name \", game_scn)
+	#next_scene = parent.game_scn.instantiate()
+	##next_scene.add_sibling(game_scn.instantiate())
+	#next_scene.set(\"app_state\", parent.app_state)
+	#parent.add_child(next_scene)
+	#next_scene.setup_level()
+	#parent.app_state.set_param(\"Game/level_instantiate\", next_scene)
+ 
+"
 
 [sub_resource type="Resource" id="18"]
 script = ExtResource("2_r12qt")
 name = "Load"
+state_class = SubResource("GDScript_u5juq")
 metadata/graph_offset = Vector2(71.5, 115.5)
+
+[sub_resource type="GDScript" id="GDScript_82e7v"]
+resource_name = "Pause"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="19"]
 script = ExtResource("2_r12qt")
 name = "Pause"
+state_class = SubResource("GDScript_82e7v")
 metadata/graph_offset = Vector2(368.5, 324.5)
+
+[sub_resource type="GDScript" id="GDScript_yld54"]
+resource_name = "Play"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="20"]
 script = ExtResource("2_r12qt")
 name = "Play"
+state_class = SubResource("GDScript_yld54")
 metadata/graph_offset = Vector2(236.5, 115.5)
 
 [sub_resource type="Resource" id="21"]
@@ -154,4 +266,5 @@ transitions = {
 }
 }
 name = "Game"
-metadata/graph_offset = Vector2(748, 123.5)
+state_class = SubResource("GDScript_g6g7o")
+metadata/graph_offset = Vector2(899.5, 132.5)

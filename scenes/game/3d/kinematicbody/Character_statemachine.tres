@@ -1,41 +1,179 @@
-[gd_resource type="Resource" script_class="StateMachine" load_steps=33 format=3 uid="uid://bgpthld2nqwtv"]
+[gd_resource type="Resource" script_class="StateMachine" load_steps=40 format=3 uid="uid://bgpthld2nqwtv"]
 
-[ext_resource type="Script" uid="uid://da6jjl1qhyo6j" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1"]
-[ext_resource type="Script" uid="uid://p3t5d78sia2m" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="2"]
-[ext_resource type="Script" uid="uid://d0eci6jxb17wo" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="3"]
-[ext_resource type="Script" uid="uid://deuo5c7cq3yky" path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" id="4"]
-[ext_resource type="Script" uid="uid://dof1kvgy38h4u" path="res://addons/imjp94.yafsm/src/conditions/IntegerCondition.gd" id="5"]
-[ext_resource type="Script" uid="uid://cbt5p7xal1uch" path="res://addons/imjp94.yafsm/src/conditions/FloatCondition.gd" id="6"]
-[ext_resource type="Script" uid="uid://csxq1y7eobasl" path="res://addons/imjp94.yafsm/src/states/State.gd" id="7"]
+[ext_resource type="Script" uid="uid://dj05xcwu35h2s" path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" id="1"]
+[ext_resource type="Script" uid="uid://473tveuavq5t" path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" id="2"]
+[ext_resource type="Script" uid="uid://41vj1aorhrx8" path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" id="3"]
+[ext_resource type="Script" uid="uid://eirvcwc438j4" path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" id="4"]
+[ext_resource type="Script" uid="uid://bp6bspbidagr2" path="res://addons/imjp94.yafsm/src/conditions/IntegerCondition.gd" id="5"]
+[ext_resource type="Script" uid="uid://b4bnj8p5468jw" path="res://addons/imjp94.yafsm/src/conditions/FloatCondition.gd" id="6"]
+[ext_resource type="Script" uid="uid://c32hneu5jvcmt" path="res://addons/imjp94.yafsm/src/states/State.gd" id="7"]
+
+[sub_resource type="GDScript" id="GDScript_eqoi0"]
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
+
+[sub_resource type="GDScript" id="GDScript_sywpb"]
+resource_name = "Entry"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="1"]
 script = ExtResource("7")
 name = "Entry"
+state_class = SubResource("GDScript_sywpb")
 metadata/graph_offset = Vector2(-200.5, -27.5)
+
+[sub_resource type="GDScript" id="GDScript_2qre2"]
+resource_name = "Fall"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="2"]
 script = ExtResource("7")
 name = "Fall"
+state_class = SubResource("GDScript_2qre2")
 metadata/graph_offset = Vector2(119.5, 232.5)
+
+[sub_resource type="GDScript" id="GDScript_jmemm"]
+resource_name = "Idle"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="3"]
 script = ExtResource("7")
 name = "Idle"
+state_class = SubResource("GDScript_jmemm")
 metadata/graph_offset = Vector2(119.5, -27.5)
+
+[sub_resource type="GDScript" id="GDScript_3u400"]
+resource_name = "Jump"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="4"]
 script = ExtResource("7")
 name = "Jump"
+state_class = SubResource("GDScript_3u400")
 metadata/graph_offset = Vector2(739.5, 152.5)
+
+[sub_resource type="GDScript" id="GDScript_y4qde"]
+resource_name = "Jump(n)"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="5"]
 script = ExtResource("7")
 name = "Jump(n)"
+state_class = SubResource("GDScript_y4qde")
 metadata/graph_offset = Vector2(619.5, 292.5)
+
+[sub_resource type="GDScript" id="GDScript_kp7ll"]
+resource_name = "Walk"
+script/source = "extends StateInterface
+
+# This code is a stub of the StateInterface.  
+# Enter is called once when the state is changed to the current state.  Use to initialize the state
+
+#func enter(parent: Node, from: String) -> void: # Enter State
+	#pass
+
+# Exit is called when the state has changed to a different state.  Use it to release resources.
+#func exit(parent: Node, to: String) -> void: # Exit of state 
+	#pass
+
+# Update is called every frame or manually per StatgeMachinePlayer setting.  Execute state code here.
+#func update(parent: Node, delta):
+	#pass
+"
 
 [sub_resource type="Resource" id="6"]
 script = ExtResource("7")
 name = "Walk"
+state_class = SubResource("GDScript_kp7ll")
 metadata/graph_offset = Vector2(559.5, -27.5)
 
 [sub_resource type="Resource" id="7"]
@@ -207,3 +345,4 @@ transitions = {
 }
 }
 name = ""
+state_class = SubResource("GDScript_eqoi0")

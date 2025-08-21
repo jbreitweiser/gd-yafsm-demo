@@ -1,10 +1,8 @@
 @tool
 extends MarginContainer
 
-
 @onready var grid = $PanelContainer/MarginContainer/VBoxContainer/GridContainer
 @onready var button = $PanelContainer/MarginContainer/VBoxContainer/MarginContainer/Button
-
 
 func _ready():
 	button.pressed.connect(_on_button_pressed)

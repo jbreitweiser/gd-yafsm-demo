@@ -5,7 +5,6 @@ const StackItem = preload("StackItem.tscn")
 
 @onready var Stack = $MarginContainer/Stack
 
-
 func _get_configuration_warning():
 	if not (get_parent() is StackPlayer):
 		return "Debugger must be child of StackPlayer"

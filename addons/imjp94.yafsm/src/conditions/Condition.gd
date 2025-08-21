@@ -1,6 +1,5 @@
 @tool
-extends Resource
-class_name Condition
+class_name Condition extends Resource
 
 signal name_changed(old, new)
 signal display_string_changed(new)

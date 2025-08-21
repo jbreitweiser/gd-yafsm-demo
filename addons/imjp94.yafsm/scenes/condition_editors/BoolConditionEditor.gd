@@ -1,6 +1,5 @@
 @tool
 extends ValueConditionEditor
-class_name BoolConditionEditor
 
 @onready var boolean_value = $MarginContainer/BooleanValue
 
@@ -8,7 +7,6 @@ func _ready():
 	super._ready()
 	
 	boolean_value.pressed.connect(_on_boolean_value_pressed)
-
 
 func _on_value_changed(new_value):
 	if boolean_value.button_pressed != new_value:

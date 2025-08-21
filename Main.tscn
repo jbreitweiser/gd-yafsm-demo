@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dh8i1ouo1vrh"]
 
-[ext_resource type="PackedScene" uid="uid://wne4i7j74l6f" path="res://addons/imjp94.yafsm/src/debugger/StackPlayerDebugger.tscn" id="1"]
-[ext_resource type="Script" uid="uid://byf15vvh7cwip" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://c6keqlumg8o7b" path="res://addons/imjp94.yafsm/src/debugger/StackPlayerDebugger.tscn" id="1"]
+[ext_resource type="Script" uid="uid://7r8gig52vdx4" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="2"]
 [ext_resource type="Resource" uid="uid://x4h7xgnptaii" path="res://AppState.tres" id="3"]
 [ext_resource type="Script" uid="uid://d4aqlt4uecn3m" path="res://Main.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://b2anhw8dn2wnt" path="res://scenes/ui/StartScreen.tscn" id="5"]

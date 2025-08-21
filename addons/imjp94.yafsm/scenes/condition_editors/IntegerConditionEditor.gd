@@ -1,10 +1,10 @@
 @tool
 extends ValueConditionEditor
-class_name IntegerConditionEditor
 
 @onready var integer_value = $MarginContainer/IntegerValue
 
 var _old_value = 0
+
 
 func _ready():
 	super._ready()

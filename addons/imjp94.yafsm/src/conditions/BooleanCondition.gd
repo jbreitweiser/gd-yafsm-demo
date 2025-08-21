@@ -1,11 +1,9 @@
 @tool
-extends ValueCondition
-class_name BooleanCondition
+class_name BooleanCondition extends ValueCondition
 
 @export var value: bool:
 	set = set_value,
 	get = get_value
-
 
 func set_value(v):
 	if value != v:

@@ -1,5 +1,4 @@
-extends EditorInspectorPlugin
-class_name StateInspector
+class_name StateInspector extends EditorInspectorPlugin
 
 func _can_handle(object):
 	return object is State

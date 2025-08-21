@@ -1,7 +1,6 @@
 @tool
 @icon("../../assets/icons/state_machine_icon.png")
-extends State
-class_name StateMachine
+class_name StateMachine extends State
 
 signal transition_added(transition) # Transition added
 signal transition_removed(to_state) # Transition removed

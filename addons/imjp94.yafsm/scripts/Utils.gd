@@ -1,4 +1,4 @@
-class_name Utils
+class_name YAFSM_Utils
 
 # Position Popup near to its target while within window, solution from ColorPickerButton source code(https://github.com/godotengine/godot/blob/6d8c14f849376905e1577f9fc3f9512bcffb1e3c/scene/gui/color_picker.cpp#L878)
 static func popup_on_target(popup: Popup, target: Control):

@@ -30,6 +30,7 @@ func _on_Select3D_pressed():
 	if app_state:
 		# Example of param "local" to nested state "Game", which will be automatically erased on exit, "Game/Exit"
 		app_state.set_param("Game/level_scn", level_3d_scn)
+		print("Scene as selected: ", level_3d_scn)
 		app_state.set_trigger("level_selected")
 		app_state.erase_param("Game/End/win")
 

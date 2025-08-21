@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://creoglbeckyhs"]
 
-[ext_resource type="Script" uid="uid://bb5dtki7hgvge" path="res://addons/imjp94.yafsm/scenes/flowchart/FlowChartLine.gd" id="1"]
+[ext_resource type="Script" uid="uid://c1qirahbvu8ll" path="res://addons/imjp94.yafsm/scenes/flowchart/FlowChartLine.gd" id="1"]
 
 [sub_resource type="Image" id="Image_kv6ul"]
 data = {

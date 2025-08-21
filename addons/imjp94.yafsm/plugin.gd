@@ -1,11 +1,7 @@
 @tool
 extends EditorPlugin
-const YAFSM = preload("YAFSM.gd")
-const StackPlayer = YAFSM.StackPlayer
-const StateMachinePlayer = YAFSM.StateMachinePlayer
 
 const StateMachineEditor = preload("scenes/StateMachineEditor.tscn")
-
 const StackPlayerIcon = preload("assets/icons/stack_player_icon.png")
 const StateMachinePlayerIcon = preload("assets/icons/state_machine_player_icon.png")
 
@@ -26,6 +22,7 @@ func _enter_tree():
 	add_custom_type("StackPlayer", "Node", StackPlayer, StackPlayerIcon)
 	add_custom_type("StateMachinePlayer", "Node", StateMachinePlayer, StateMachinePlayerIcon)
 	
+	state_machine_editor.undo_redo = get_undo_redo()
 	state_machine_editor.selection_stylebox.bg_color = editor_base_control.get_theme_color("box_selection_fill_color", "Editor")
 	state_machine_editor.selection_stylebox.border_color = editor_base_control.get_theme_color("box_selection_stroke_color", "Editor")
 	state_machine_editor.zoom_minus.icon = editor_base_control.get_theme_icon("ZoomLess", "EditorIcons")
@@ -58,6 +55,7 @@ func _exit_tree():
 	remove_inspector_plugin(state_inspector)
 
 	if state_machine_editor:
+		hide_state_machine_editor()
 		state_machine_editor.queue_free()
 
 func _handles(object):
@@ -107,6 +105,8 @@ func _on_focused_object_changed(new_obj):
 		if focused_object is StateMachinePlayer:
 			if focused_object.get_class() == "EditorDebuggerRemoteObject":
 				state_machine = focused_object.get("Members/state_machine")
+				if state_machine == null:
+					state_machine = focused_object.get("Members/StateMachinePlayer.gd/state_machine")
 			else:
 				state_machine = focused_object.state_machine
 			state_machine_editor.state_machine_player = focused_object

@@ -1,12 +1,9 @@
 @tool
-extends ValueCondition
-class_name IntegerCondition
-
+class_name IntegerCondition extends ValueCondition
 
 @export var value: int:
 	set = set_value,
 	get = get_value
-
 
 func set_value(v):
 	if value != v:

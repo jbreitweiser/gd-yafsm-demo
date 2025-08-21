@@ -1,10 +1,7 @@
 @tool
-extends "res://addons/imjp94.yafsm/scenes/flowchart/FlowChartLayer.gd"
+class_name StateMachineEditorLayer extends FlowChartLayer
 
-const Utils = preload("res://addons/imjp94.yafsm/scripts/Utils.gd")
 const StateNode = preload("res://addons/imjp94.yafsm/scenes/state_nodes/StateNode.tscn")
-const StateNodeScript = preload("res://addons/imjp94.yafsm/scenes/state_nodes/StateNode.gd")
-const StateDirectory = preload("../src/StateDirectory.gd")
 
 var editor_accent_color: = Color.WHITE:
 	set = set_editor_accent_color
@@ -128,7 +125,7 @@ func debug_transit_in(from, to):
 
 func set_editor_accent_color(color):
 	editor_accent_color = color
-	editor_complementary_color = Utils.get_complementary_color(color)
+	editor_complementary_color = YAFSM_Utils.get_complementary_color(color)
 
 
 func _init_tweens():

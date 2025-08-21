@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://ccv81pntbud75"]
 
 [node name="StateNodeContextMenu" type="PopupMenu"]
-size = Vector2i(154, 120)
+size = Vector2i(178, 147)
 visible = true
-item_count = 5
+unfocusable = true
+item_count = 6
 item_0/text = "Copy"
 item_0/id = 0
 item_1/text = "Duplicate"
 item_1/id = 1
 item_2/text = "Delete"
 item_2/id = 4
-item_3/text = ""
 item_3/id = 2
 item_3/separator = true
 item_4/text = "Convert to State"
 item_4/id = 3
+item_5/text = "Open State Machine"
+item_5/id = 5

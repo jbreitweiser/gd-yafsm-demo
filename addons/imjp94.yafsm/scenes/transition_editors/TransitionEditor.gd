@@ -53,7 +53,7 @@ func _on_priority_spinbox_value_changed(val: int) -> void:
 	set_priority(val)
 
 func _on_add_pressed():
-	Utils.popup_on_target(add_popup_menu, add)
+	YAFSM_Utils.popup_on_target(add_popup_menu, add)
 
 func _on_add_popup_menu_index_pressed(index):
 	## Handle condition name duplication (4.x changed how duplicates are

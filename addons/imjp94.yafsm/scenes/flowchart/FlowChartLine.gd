@@ -1,6 +1,5 @@
 @tool
-extends Container
-class_name FlowChartLine
+class_name FlowChartLine extends Container
 # Custom style normal, focus, arrow
 
 var selected: = false:

@@ -1,6 +1,5 @@
 @tool
 extends ValueConditionEditor
-class_name StringConditionEditor
 
 @onready var string_value = $MarginContainer/StringValue
 
