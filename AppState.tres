@@ -47,7 +47,7 @@ script/source = "extends StateInterface
 script = ExtResource("2")
 name = "Entry"
 state_class = SubResource("GDScript_l484f")
-metadata/graph_offset = Vector2(139.5, 272.5)
+metadata/graph_offset = Vector2(199.5, 332.5)
 
 [sub_resource type="GDScript" id="GDScript_uouq2"]
 resource_name = "Exit"
@@ -67,7 +67,7 @@ func enter(parent: Node, from: String) -> void: # Enter State
 script = ExtResource("2")
 name = "Exit"
 state_class = SubResource("GDScript_uouq2")
-metadata/graph_offset = Vector2(559.5, 272.5)
+metadata/graph_offset = Vector2(819.5, 332.5)
 
 [sub_resource type="GDScript" id="GDScript_yfgvy"]
 resource_name = "LevelSelect"
@@ -93,7 +93,7 @@ func exit(parent: Node, to: String) -> void: # Exit of state
 script = ExtResource("2")
 name = "LevelSelect"
 state_class = SubResource("GDScript_yfgvy")
-metadata/graph_offset = Vector2(681.5, 12.5)
+metadata/graph_offset = Vector2(1081.5, 72.5)
 
 [sub_resource type="GDScript" id="GDScript_v13e0"]
 resource_name = "MainMenu"
@@ -117,7 +117,7 @@ func exit(parent: Node, to: String) -> void: # Exit of state
 script = ExtResource("2")
 name = "MainMenu"
 state_class = SubResource("GDScript_v13e0")
-metadata/graph_offset = Vector2(547.5, 132.5)
+metadata/graph_offset = Vector2(807.5, 192.5)
 
 [sub_resource type="GDScript" id="GDScript_y670u"]
 resource_name = "SplashScreen"
@@ -141,7 +141,7 @@ func exit(parent: Node, to: String) -> void: # Exit of state
 script = ExtResource("2")
 name = "SplashScreen"
 state_class = SubResource("GDScript_y670u")
-metadata/graph_offset = Vector2(109, 132.5)
+metadata/graph_offset = Vector2(169, 192.5)
 
 [sub_resource type="GDScript" id="GDScript_py3be"]
 resource_name = "StartScreen"
@@ -164,7 +164,7 @@ func exit(parent: Node, to: String) -> void: # Exit of state
 script = ExtResource("2")
 name = "StartScreen"
 state_class = SubResource("GDScript_py3be")
-metadata/graph_offset = Vector2(340.5, 132.5)
+metadata/graph_offset = Vector2(580.5, 192.5)
 
 [sub_resource type="Resource" id="40"]
 script = ExtResource("3")

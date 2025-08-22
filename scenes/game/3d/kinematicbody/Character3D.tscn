@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqo0p6bo3sf66"]
 
-[ext_resource type="Script" uid="uid://byf15vvh7cwip" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1"]
+[ext_resource type="Script" uid="uid://7r8gig52vdx4" path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" id="1"]
 [ext_resource type="Script" uid="uid://beyqxox3m5spd" path="res://scenes/game/3d/kinematicbody/Character3D.gd" id="2"]
 [ext_resource type="Resource" uid="uid://bgpthld2nqwtv" path="res://scenes/game/3d/kinematicbody/Character_statemachine.tres" id="3"]
 

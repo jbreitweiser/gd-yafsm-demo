@@ -37,6 +37,7 @@ var zoom_reset = Button.new()
 var zoom_plus = Button.new()
 var snap_button = Button.new()
 var snap_amount = SpinBox.new()
+var finger_positions: Array[Vector2] = [Vector2(), Vector2()] # Stores positions for finger 0 and finger 1
 
 var is_snapping = true
 var can_gui_select_node = true
@@ -88,6 +89,8 @@ func _init():
 	v_scroll.offset_bottom = -h_scroll.size.y
 
 	h_scroll.min_value = 0
+	h_scroll.max_value = 0
+	v_scroll.min_value = 0
 	v_scroll.max_value = 0
 
 	add_layer_to(content)
@@ -234,7 +237,6 @@ func _draw():
 	# 	draw_line(from_pos, to_pos, Color.yellow)
 
 func _gui_input(event):
-
 	var OS_KEY_DELETE = KEY_BACKSPACE if ( ["macOS", "OSX"].has(OS.get_name()) ) else KEY_DELETE
 	if event is InputEventKey:
 		match event.keycode:
@@ -328,13 +330,39 @@ func _gui_input(event):
 					set_zoom(1.0)
 					queue_redraw()
 			MOUSE_BUTTON_WHEEL_UP:
-				# Zoom in
-				set_zoom(zoom + zoom_step/10)
-				queue_redraw()
+				if event.ctrl_pressed:
+					#Input.is_key_pressed(KEY_CTRL):
+					# Panning
+					print("MOUSE_BUTTON_WHEEL_UP")
+					v_scroll.value -= 2.0
+					#v_scroll.value -= 2.0
+					queue_redraw()
+				else:
+					# Zoom in
+					set_zoom(zoom + zoom_step/10)
+					queue_redraw()
 			MOUSE_BUTTON_WHEEL_DOWN:
-				# Zoom out
-				set_zoom(zoom - zoom_step/10)
-				queue_redraw()
+				if event.ctrl_pressed:
+					# Panning
+					print("MOUSE_BUTTON_WHEEL_DOWN")
+					v_scroll.value += 2.0
+					queue_redraw()
+				else:
+					# Zoom out
+					set_zoom(zoom - zoom_step/10)
+					queue_redraw()
+			MOUSE_BUTTON_WHEEL_LEFT:
+				if event.ctrl_pressed:
+					# Panning
+					print("MOUSE_BUTTON_WHEEL_LEFT")
+					h_scroll.value -= 2.0
+					queue_redraw()
+			MOUSE_BUTTON_WHEEL_RIGHT:
+				if event.ctrl_pressed:
+					# Panning
+					print("MOUSE_BUTTON_WHEEL_RIGHT")
+					h_scroll.value += 2.0
+					queue_redraw()
 			MOUSE_BUTTON_LEFT:
 				# Hit detection
 				var hit_node

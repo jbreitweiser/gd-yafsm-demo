@@ -61,7 +61,7 @@ func enter(parent: Node, from: String) -> void: # Enter State
 script = ExtResource("2_4xc7j")
 name = "Entry"
 state_class = SubResource("GDScript_4xc7j")
-metadata/graph_offset = Vector2(-0.5, 132.5)
+metadata/graph_offset = Vector2(359.5, 232.5)
 
 [sub_resource type="GDScript" id="GDScript_loc6h"]
 resource_name = "Exit"
@@ -82,7 +82,7 @@ func enter(parent: Node, from: String) -> void: # Enter State
 script = ExtResource("2_4xc7j")
 name = "Exit"
 state_class = SubResource("GDScript_loc6h")
-metadata/graph_offset = Vector2(619.5, 92.5)
+metadata/graph_offset = Vector2(979.5, 192.5)
 
 [sub_resource type="GDScript" id="GDScript_kukut"]
 resource_name = "GameOver"
@@ -107,7 +107,7 @@ script/source = "extends StateInterface
 script = ExtResource("2_4xc7j")
 name = "GameOver"
 state_class = SubResource("GDScript_kukut")
-metadata/graph_offset = Vector2(305, 192.5)
+metadata/graph_offset = Vector2(665, 292.5)
 
 [sub_resource type="GDScript" id="GDScript_38ubg"]
 resource_name = "Victory"
@@ -132,7 +132,7 @@ script/source = "extends StateInterface
 script = ExtResource("2_4xc7j")
 name = "Victory"
 state_class = SubResource("GDScript_38ubg")
-metadata/graph_offset = Vector2(279.5, 52.5)
+metadata/graph_offset = Vector2(639.5, 152.5)
 
 [sub_resource type="Resource" id="Resource_pyv1q"]
 script = ExtResource("3_loc6h")
@@ -212,4 +212,4 @@ transitions = {
 }
 name = "End"
 state_class = SubResource("GDScript_pyv1q")
-metadata/graph_offset = Vector2(401.5, 5.5)
+metadata/graph_offset = Vector2(779.5, 52.5)
